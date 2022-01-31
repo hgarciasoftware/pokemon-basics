@@ -1,11 +1,11 @@
-import image from '../whos-that-pokemon.jpg';
+import silhouette from '../assets/images/silhouette.jpg';
 
 function About() {
   return (
     <div className="about">
       <h1>Pokémon Basics</h1>
       <figure>
-        <img src={image} alt="Silhouette of a round Pokémon" />
+        <img src={silhouette} alt="Silhouette of a round Pokémon" />
         <figcaption><i>Who's that Pokemon?</i></figcaption>
       </figure>
       <p>

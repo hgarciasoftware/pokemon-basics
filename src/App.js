@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import About from './components/About';
 import Feedback from './components/Feedback';
 import Footer from './components/Footer';
@@ -8,7 +8,7 @@ import PokemonNav from './components/PokemonNav';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="container">
         <Header />
         <main>
@@ -23,7 +23,7 @@ function App() {
         </main>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

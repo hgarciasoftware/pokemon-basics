@@ -1,12 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useReducer, useRef, useState } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';
 import axios from 'axios';
 import utils from '../utils';
 
+function reducer(state, action) {
+  switch (action.type) {
+  case 'toggle':
+    return !state;
+  case 'hide':
+    return false;
+  default:
+    throw new Error();
+  }
+}
+
 function Pokemon() {
   const [pokedex, setPokedex] = useState({});
   const [movesets, setMovesets] = useState({});
-  const [showMoveset, setShowMoveset] = useState(false);
+  const [isMovesetVisible, dispatch] = useReducer(reducer, false);
   const pokemonDataRef = useRef(null);
   const { name } = useParams();
   const pokemonList = useOutletContext();
@@ -20,7 +31,7 @@ function Pokemon() {
   }, [pokedex, pokemonList, name]);
 
   useEffect(() => {
-    if (showMoveset && utils.isEmpty(movesets)) {
+    if (isMovesetVisible && utils.isEmpty(movesets)) {
       axios.get('https://pkmn.github.io/smogon/data/sets/gen1.json').then(response => {
         const sets = Object.entries(response.data).reduce((object, [pkmnName, pkmnMovesets]) => {
           const nameKebab = utils.toKebabCase(pkmnName);
@@ -33,17 +44,17 @@ function Pokemon() {
         setMovesets(sets);
       });
     }
-  }, [movesets, showMoveset]);
+  }, [movesets, isMovesetVisible]);
 
   useEffect(() => {
-    setShowMoveset(false);
+    dispatch({ type: 'hide' })
   }, [name]);
 
   if (pokedex[name] === undefined) return null;
 
   const { color, flavor_text_entries, id, names } = pokedex[name];
-  const toggleShowMoveset = function () {
-    setShowMoveset(!showMoveset);
+  const toggleMovesetVisibility = function () {
+    dispatch({ type: 'toggle' });
     utils.toggleRotate(pokemonDataRef);
   };
 
@@ -51,7 +62,7 @@ function Pokemon() {
     <div className="pokemon" style={{ backgroundColor: color.name, backgroundImage: `url("${utils.getSvgUrl(id)}")`}}>
       <div ref={pokemonDataRef} className="pokemon-data">
         <h1 className="pokemon-name">{utils.findEnglishName(names)}</h1>
-        {showMoveset && !utils.isEmpty(movesets) ? (
+        {isMovesetVisible && !utils.isEmpty(movesets) ? (
           movesets[name] !== undefined ? (
             <ul className="pokemon-moveset">
               {utils.findMoves(movesets[name]).map(move => <li>{move}</li>)}
@@ -62,8 +73,8 @@ function Pokemon() {
             {utils.findEnglishFlavorText(flavor_text_entries)}
           </div>
         )}
-        <div onClick={toggleShowMoveset} data-toggle>
-          <u>View {showMoveset ? 'Pokédex Entry' : 'Sample Moveset'}</u>
+        <div onClick={toggleMovesetVisibility} data-toggle>
+          <u>View {isMovesetVisible ? 'Pokédex Entry' : 'Sample Moveset'}</u>
         </div>
       </div>
     </div>

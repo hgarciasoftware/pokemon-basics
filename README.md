@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# pokemon-basics
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://hgarciasoftware.github.io/pokemon-basics/
 
-## Available Scripts
+Pokémon Basics provides beginners with basic descriptions of the first 151 Pokémon as well as competitive movesets for battle. Pokémon Basics is powered by [PokéAPI](https://pokeapi.co/) and [@pkmn/smogon](https://pkmn.github.io/smogon/).
 
-In the project directory, you can run:
+### while making this app i learned:
 
-### `npm start`
+- how to style a scrollbar (on chromium-based browsers)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- react-router's `<Outlet>` has a context provider built into it
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [react's StrictMode intentionally causes components to render twice in order to help find accidental side effects](https://github.com/facebook/react/issues/15074#issuecomment-471197572)
 
-### `npm test`
+### and i got more practice with:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- css animations
 
-### `npm run build`
+- dealing with setbacks
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- flexbox
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- react hooks
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### there's a lot that could still be done, like:
 
-### `npm run eject`
+- implementing [concurrent rendering](https://reactjs.org/blog/2021/06/08/the-plan-for-react-18.html#whats-coming-in-react-18) for a smoother user experience and for cleaner code
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- tightening the css so that the webpage looks good no matter the user's device or preferred font settings

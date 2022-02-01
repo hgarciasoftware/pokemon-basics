@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/pokemon-basics/static/css/main.32657551.css",
+    "main.js": "/pokemon-basics/static/js/main.b2d5e719.js",
+    "static/media/silhouette.jpg": "/pokemon-basics/static/media/silhouette.628d237095a70150dc6e.jpg",
+    "index.html": "/pokemon-basics/index.html",
+    "main.32657551.css.map": "/pokemon-basics/static/css/main.32657551.css.map",
+    "main.b2d5e719.js.map": "/pokemon-basics/static/js/main.b2d5e719.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.32657551.css",
+    "static/js/main.b2d5e719.js"
+  ]
+}
